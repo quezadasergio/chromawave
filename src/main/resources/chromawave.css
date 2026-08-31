@@ -1,0 +1,204 @@
+/* Tema oscuro de ChromaWave: el cromo debe desaparecer y dejar todo el
+   protagonismo visual al lienzo del visualizador. */
+
+.root {
+    -fx-font-family: "SF Pro Text", "Segoe UI", "Inter", sans-serif;
+    -fx-font-size: 12.5px;
+    -fx-background-color: #08080c;
+
+    -cw-surface: #14141c;
+    -cw-surface-hi: #1e1e2a;
+    -cw-text: #e8e8f2;
+    -cw-text-dim: #8f8fa6;
+    -cw-accent: #00e5ff;
+}
+
+.label {
+    -fx-text-fill: -cw-text-dim;
+}
+
+.panel-title {
+    -fx-text-fill: -cw-text;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.status-label {
+    -fx-text-fill: -cw-text-dim;
+    -fx-font-size: 11.5px;
+}
+
+.time-label {
+    -fx-text-fill: -cw-text;
+    -fx-font-family: "SF Mono", "Consolas", monospace;
+    -fx-font-size: 11.5px;
+}
+
+/* ---------------------------------------------------------------- barra inferior */
+
+.control-bar {
+    -fx-background-color: linear-gradient(to bottom, #101018, #0a0a10);
+    -fx-border-color: #22222e transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.icon-button {
+    -fx-background-color: -cw-surface;
+    -fx-background-radius: 8;
+    -fx-text-fill: -cw-text;
+    -fx-font-size: 14px;
+    -fx-min-width: 34px;
+    -fx-min-height: 30px;
+    -fx-cursor: hand;
+}
+
+.icon-button:hover {
+    -fx-background-color: -cw-surface-hi;
+}
+
+.icon-button:selected,
+.icon-button:pressed {
+    -fx-background-color: -cw-accent;
+    -fx-text-fill: #06060a;
+}
+
+.play-button {
+    -fx-min-width: 44px;
+    -fx-font-size: 16px;
+}
+
+.button {
+    -fx-background-color: -cw-surface;
+    -fx-background-radius: 8;
+    -fx-text-fill: -cw-text;
+    -fx-cursor: hand;
+    -fx-padding: 5 12 5 12;
+}
+
+.button:hover {
+    -fx-background-color: -cw-surface-hi;
+}
+
+/* ---------------------------------------------------------------- sliders */
+
+.slider .track {
+    -fx-background-color: #262633;
+    -fx-background-radius: 4;
+    -fx-pref-height: 5px;
+}
+
+.slider .thumb {
+    -fx-background-color: -cw-text;
+    -fx-background-radius: 10;
+    -fx-pref-width: 13px;
+    -fx-pref-height: 13px;
+    -fx-padding: 0;
+}
+
+.slider:hover .thumb {
+    -fx-background-color: -cw-accent;
+}
+
+.seek-slider .track {
+    -fx-pref-height: 6px;
+}
+
+/* ---------------------------------------------------------------- combos */
+
+.combo-box {
+    -fx-background-color: -cw-surface;
+    -fx-background-radius: 8;
+    -fx-mark-color: -cw-text-dim;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: -cw-text;
+    -fx-padding: 4 8 4 8;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: -cw-surface-hi;
+    -fx-border-color: #2c2c3c;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: -cw-accent;
+    -fx-text-fill: #06060a;
+}
+
+.check-box {
+    -fx-text-fill: -cw-text-dim;
+}
+
+.check-box .box {
+    -fx-background-color: -cw-surface;
+    -fx-background-radius: 4;
+    -fx-border-color: #33334a;
+    -fx-border-radius: 4;
+}
+
+.check-box:selected .box {
+    -fx-background-color: -cw-accent;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #06060a;
+}
+
+/* ---------------------------------------------------------------- lista */
+
+.playlist-pane {
+    -fx-background-color: #0d0d14;
+    -fx-border-color: transparent transparent transparent #22222e;
+    -fx-border-width: 0 0 0 1;
+}
+
+.list-view {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-control-inner-background: transparent;
+}
+
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -cw-text-dim;
+    -fx-padding: 6 8 6 8;
+}
+
+.list-view .list-cell:hover {
+    -fx-background-color: -cw-surface;
+    -fx-background-radius: 6;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: -cw-surface-hi;
+    -fx-background-radius: 6;
+    -fx-text-fill: -cw-text;
+}
+
+.list-view .current-track {
+    -fx-text-fill: -cw-accent;
+    -fx-font-weight: bold;
+}
+
+/* ---------------------------------------------------------------- superposición */
+
+.overlay-label {
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(0, 0, 0, 0.42);
+    -fx-background-radius: 10;
+    -fx-padding: 10 16 10 16;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 12, 0.2, 0, 2);
+}
+
+.separator .line {
+    -fx-border-color: #2a2a38;
+}
+
+.tooltip {
+    -fx-background-color: #1e1e2a;
+    -fx-text-fill: -cw-text;
+    -fx-background-radius: 6;
+}
