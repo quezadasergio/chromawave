@@ -37,6 +37,40 @@ Para abrir directamente una o varias pistas:
 También se puede generar un paquete distribuible con `./gradlew installDist`, que deja
 un lanzador en `build/install/chromawave/bin/`.
 
+## Un único JAR ejecutable
+
+```bash
+./gradlew shadowJar
+```
+
+Genera en `build/libs/` un jar autocontenido de unos 10 MB que se ejecuta con:
+
+```bash
+java -jar chromawave-1.0.0-mac-aarch64.jar
+java -jar chromawave-1.0.0-mac-aarch64.jar /ruta/cancion.flac
+```
+
+Dentro va todo lo necesario: JavaFX con sus bibliotecas nativas y los decodificadores
+de FLAC y OGG. Quien lo reciba solo necesita tener instalado un Java 25 o superior.
+
+**Es específico de cada sistema operativo.** JavaFX incluye código nativo, así que el
+jar sirve únicamente para la plataforma con la que se construyó. El nombre lleva esa
+plataforma como sufijo, y para las demás se indica al compilar:
+
+```bash
+./gradlew shadowJar -Pjavafx.platform=win           # chromawave-1.0.0-win.jar
+./gradlew shadowJar -Pjavafx.platform=linux         # chromawave-1.0.0-linux.jar
+./gradlew shadowJar -Pjavafx.platform=mac           # Macs con Intel
+./gradlew shadowJar -Pjavafx.platform=mac-aarch64   # Macs con Apple Silicon
+```
+
+Los jars para otras plataformas se pueden construir desde cualquier equipo, así que no
+hace falta una máquina de cada sistema para repartir la aplicación.
+
+Al arrancar aparece el aviso `Unsupported JavaFX configuration: classes were loaded from
+unnamed module`. Es inofensivo: solo indica que JavaFX viene del classpath en lugar del
+module path, algo inevitable cuando todo se funde en un único jar.
+
 ## Formatos admitidos
 
 | Formato | Motor | Notas |
